@@ -1,38 +1,181 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
+
+  background: #ffc2d1;
+  background: linear-gradient(
+    135deg,
+    #ffb3c6 25%,
+    #ffc2d1 25%,
+    #ffc2d1 50%,
+    #ffb3c6 50%,
+    #ffb3c6 75%,
+    #ffc2d1 75%,
+    #ffc2d1
+  );
+  background-size: 40px 40px;
+
+  animation: move 4s linear infinite;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  background-color: #fff;
+  width: 580px;
+  height: 420px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  background-color: #ffe5ec;
+}
+
+.container-input input::placeholder {
+  color: #fff;
+  font-size: 15px;
+}
+.container-input {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem; 
+  padding: 20px;
+  color: #fff;
+}
+
+.container-input input {
+  width: 462.94px;
+  height: 41.38px;
+  border: none; 
+  outline: none;
+  border-radius: 2px;
+  border-bottom: 2px solid #ff5d8f;
+  background-color: #ffc2d1;
+  padding-left: 10px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.container-input button{
+  width: 40px;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  background-color: #ffc2d1;
+  padding: 2px;
+  color: #ff5d8f;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+.container-input button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px, rgba(0, 0, 0, 0.3) 0px 3.5px 6.5px -1.5px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
+}
+
+.container-list{
+  width: 95%;
+  height: 300px; 
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: filter 0.3s ease;
+
+  cursor: pointer;
+  padding-top: 3px;
+
+}
+
+.container-list ul{
+  list-style: none;
+  padding: 0px 20px 0px 30px;
+  cursor: default;
+  margin-top: 0px;
+  
+}
+
+.container-list::-webkit-scrollbar {
+  width: 8px;
+}
+.container-list::-webkit-scrollbar-track{
+  background: #ffe5ec;
+  padding-right: 5px;
+}
+.container-list::-webkit-scrollbar-thumb{
+  background-color: rgba(255, 93, 143,.5);
+  border-radius: 5px;
+  opacity: 0.6;
+ 
+}
+
+.container-list ul li{
+  margin-bottom: 10px;
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-list ul li span{
+  flex: 1;
+  margin-left: 20px;
+  transition: .4s ease all;
+}
+.container-checkbox{
+  cursor: pointer;
+}
+
+.container-checkbox input{
+  display: none;
+}
+
+.container-checkbox svg {
+  overflow: visible;
+}
+
+.path {
+  fill: none;
+  stroke: #ff5d8f;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+
+.container-checkbox input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}
+
+.checked {
+  text-decoration: line-through;
+color: rgba(255, 93, 143,.5);
+}
+
+
+.container-list ul li button {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
